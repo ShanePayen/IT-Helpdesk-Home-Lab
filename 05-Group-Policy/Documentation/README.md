@@ -101,7 +101,7 @@ Purpose
 
 This command forces client computers to immediately apply updated Group Policy settings.
 
-Step 6: Verifying Password Policy
+# Step 6: Verifying Password Policy
 
 PowerShell was used to confirm the domain password policy.
 
