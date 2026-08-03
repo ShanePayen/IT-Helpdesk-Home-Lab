@@ -1,22 +1,22 @@
-# Group Policy Configuration Documentation
+# 05 - Group Policy Configuration
 
 ## Overview
 
-This document explains the configuration and verification of Group Policy settings within the Active Directory lab environment.
+Group Policy was configured within the Active Directory environment to manage security settings and user policies across the domain.
 
-Group Policy is used by organisations to centrally manage security settings and user configurations across domain-connected computers.
+Group Policy allows administrators to centrally control settings for users and computers within an organisation. It is commonly used by IT administrators to enforce security requirements and standardise configurations.
 
 ---
 
 # Objective
 
-The objectives of this stage were:
+The objectives of this task were:
 
 - Access Group Policy Management.
-- Configure domain security settings.
-- Apply password requirements.
+- Review the Default Domain Policy.
+- Configure password security settings.
 - Configure account lockout settings.
-- Verify the applied policies.
+- Apply and verify Group Policy changes.
 
 ---
 
@@ -28,113 +28,43 @@ The objectives of this stage were:
 
 ## Tools Used
 
-- Group Policy Management Console
-- Active Directory Users and Computers
+- Group Policy Management Console (GPMC)
+- Active Directory Domain Services
 - PowerShell
 
 ---
 
-# Step 1: Opening Group Policy Management
+# Steps Completed
 
-## Process Completed
+## Step 1: Opening Group Policy Management
+
+The Group Policy Management Console was opened from the Domain Controller.
+
+Process:
 
 1. Logged into the Domain Controller.
 2. Opened Server Manager.
-3. Accessed Group Policy Management.
-4. Located the domain policies.
+3. Selected **Tools**.
+4. Opened **Group Policy Management**.
 
 ---
 
-# Step 2: Reviewing Default Domain Policy
+## Step 2: Accessing the Default Domain Policy
 
-## Purpose
+The Default Domain Policy was accessed to review and configure domain security settings.
 
-The Default Domain Policy controls important security settings that apply across the domain.
+Process:
 
-Settings reviewed included:
-
-- Password requirements.
-- Account lockout policies.
-- User authentication settings.
-
----
-
-# Step 3: Configuring Password Policy
-
-## Process Completed
-
-Password policy settings were reviewed and configured.
-
-Settings include:
-
-- Password complexity requirements.
-- Minimum password length.
-- Password history requirements.
-- Password expiration settings.
-
-These settings help improve account security.
+1. Expanded the forest.
+2. Expanded the domain.
+3. Located **Default Domain Policy**.
+4. Right-clicked the policy.
+5. Selected **Edit**.
 
 ---
 
-# Step 4: Configuring Account Lockout Policy
+## Step 3: Configuring Password Policy
 
-## Purpose
+The password policy settings were reviewed and configured.
 
-Account lockout policies help protect accounts from repeated failed login attempts.
-
-Settings configured include:
-
-- Lockout threshold.
-- Lockout duration.
-- Reset account lockout counter.
-
----
-
-# Step 5: Updating Group Policy
-
-After making policy changes, Group Policy can be refreshed using:
-
-```powershell
-gpupdate /force
-
-Purpose
-
-This command forces client computers to immediately apply updated Group Policy settings.
-
-# Step 6: Verifying Password Policy
-
-PowerShell was used to confirm the domain password policy.
-
-Command Used
-Get-ADDefaultDomainPasswordPolicy
-Information Verified
-
-The command displays:
-
-Password complexity status.
-Minimum password age.
-Maximum password age.
-Password history requirements.
-Account lockout settings.
-Outcome
-
-Group Policy settings were successfully configured and verified.
-
-The domain environment was prepared with basic security controls similar to those used in business environments.
-
-Screenshots
-
-Evidence to include:
-
-Group Policy Management Console.
-Password policy settings.
-Account lockout settings.
-PowerShell output from:
-Get-ADDefaultDomainPasswordPolicy
-Skills Demonstrated
-Group Policy management.
-Active Directory security.
-Password policy configuration.
-PowerShell verification.
-Domain administration.
-Security best practices.
+Location:
