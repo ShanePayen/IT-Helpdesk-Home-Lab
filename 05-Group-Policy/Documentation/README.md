@@ -132,7 +132,7 @@ Purpose:
 
 Forces Group Policy updates to apply immediately instead of waiting for the normal refresh cycle.
 
-Step 6: Verifying Group Policy Settings
+##Step 6: Verifying Group Policy Settings
 
 PowerShell was used to verify the Active Directory password policy configuration.
 
