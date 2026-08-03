@@ -1,0 +1,146 @@
+# Hyper-V Lab Environment Setup Documentation
+
+## Overview
+
+This document explains the steps completed to create the virtual lab environment using Microsoft Hyper-V.
+
+The purpose of this setup was to create a safe testing environment where Windows Server and Windows Client machines could be deployed and used to practise IT support, Active Directory administration, and troubleshooting tasks.
+
+---
+
+# Objective
+
+The objectives of this setup were:
+
+- Enable Microsoft Hyper-V.
+- Create virtual machines for the lab environment.
+- Install Windows operating systems.
+- Configure the machines for future Active Directory setup.
+- Prepare a realistic IT infrastructure testing environment.
+
+---
+
+# Lab Environment
+
+## Virtualisation Platform
+
+- Microsoft Hyper-V
+
+## Virtual Machines Created
+
+### DC01
+
+Purpose:
+
+- Host Windows Server.
+- Become the Domain Controller.
+- Run Active Directory Domain Services.
+- Manage users, groups, and policies.
+
+### Client Machine
+
+Purpose:
+
+- Simulate an employee workstation.
+- Connect to the domain.
+- Test user access and authentication.
+
+---
+
+# Step 1: Enabling Hyper-V
+
+## Process Completed
+
+1. Opened Windows Features.
+2. Enabled the Hyper-V feature.
+3. Installed the required Hyper-V components.
+4. Restarted the computer to complete installation.
+5. Opened Hyper-V Manager.
+
+## Outcome
+
+Hyper-V was successfully enabled and ready for virtual machine creation.
+
+---
+
+# Step 2: Creating Virtual Machines
+
+## Process Completed
+
+1. Opened Hyper-V Manager.
+2. Selected **New Virtual Machine**.
+3. Configured the virtual machine settings.
+
+Settings configured included:
+
+- Virtual machine name.
+- Generation type.
+- Memory allocation.
+- Virtual hard disk storage.
+- Network adapter configuration.
+
+4. Attached Windows installation media.
+5. Completed the virtual machine creation process.
+
+---
+
+# Step 3: Installing Operating Systems
+
+## Process Completed
+
+1. Started the virtual machines.
+2. Booted from the installation media.
+3. Installed Windows Server on the server machine.
+4. Installed Windows Client on the workstation machine.
+5. Completed the initial Windows configuration.
+
+## Outcome
+
+Both virtual machines successfully booted and were ready for configuration.
+
+---
+
+# Step 4: Lab Verification
+
+## Checks Performed
+
+The environment was checked to confirm:
+
+- Virtual machines were created successfully.
+- Operating systems were installed correctly.
+- Machines could start without errors.
+- The environment was ready for further configuration.
+
+---
+
+# Screenshots
+
+Evidence included:
+
+- Hyper-V Manager showing created virtual machines.
+- DC01 virtual machine.
+- Client virtual machine.
+- Virtual machine configuration settings.
+
+---
+
+# Skills Demonstrated
+
+- Hyper-V virtualisation.
+- Virtual machine deployment.
+- Windows installation.
+- IT infrastructure preparation.
+- Lab environment creation.
+- Troubleshooting virtual environments.
+
+---
+
+# Next Steps
+
+After completing the Hyper-V setup, the next stage was:
+
+1. Configure Windows Server.
+2. Prepare the server for Active Directory Domain Services.
+3. Create and manage domain users.
+4. Configure Group Policy.
+5. Perform helpdesk administration tasks.
