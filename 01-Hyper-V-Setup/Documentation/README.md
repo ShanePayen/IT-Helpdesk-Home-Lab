@@ -1,0 +1,162 @@
+# Hyper-V Lab Setup Documentation
+
+## Overview
+
+This document explains the creation and configuration of the virtual lab environment using Microsoft Hyper-V.
+
+Hyper-V was used to create virtual machines that would be used to build a Windows Server Active Directory helpdesk environment.
+
+---
+
+# Objective
+
+The objectives of this stage were:
+
+- Install and configure the Hyper-V environment.
+- Create virtual machines for the lab.
+- Prepare the environment for Windows Server installation.
+- Build the foundation for an Active Directory test environment.
+
+---
+
+# Environment
+
+## Virtualisation Platform
+
+- Microsoft Hyper-V
+
+## Virtual Machines Created
+
+The lab environment included:
+
+- Windows Server Virtual Machine
+- Client Virtual Machine
+
+The Windows Server machine was used for:
+
+- Active Directory Domain Services.
+- DNS.
+- DHCP.
+- Group Policy.
+- User management.
+
+The client machine was used for:
+
+- Domain joining.
+- Testing user access.
+- Testing policies.
+
+---
+
+# Step 1: Enabling Hyper-V
+
+## Process Completed
+
+Hyper-V was enabled on the Windows host machine.
+
+Steps completed:
+
+1. Opened Windows Features.
+2. Enabled Hyper-V.
+3. Restarted the computer.
+4. Opened Hyper-V Manager.
+
+---
+
+# Step 2: Creating Virtual Machines
+
+## Process Completed
+
+Virtual machines were created using Hyper-V Manager.
+
+Configuration included:
+
+- Creating new virtual machines.
+- Assigning memory.
+- Creating virtual hard disks.
+- Connecting installation media.
+- Configuring network settings.
+
+---
+
+# Step 3: Installing Operating Systems
+
+## Process Completed
+
+Operating systems were installed onto the virtual machines.
+
+The environment was prepared for:
+
+- Windows Server configuration.
+- Client machine testing.
+- Active Directory deployment.
+
+---
+
+# Step 4: Configuring Virtual Network
+
+## Process Completed
+
+The Hyper-V virtual network was configured to allow communication between virtual machines.
+
+This allowed:
+
+- Server and client communication.
+- Domain testing.
+- Network service testing.
+
+---
+
+# Step 5: Lab Verification
+
+## Checks Completed
+
+The virtual environment was checked to confirm:
+
+- Virtual machines started correctly.
+- Network communication was available.
+- The server was ready for further configuration.
+
+---
+
+# Outcome
+
+The Hyper-V environment was successfully created and prepared for the Windows Server Active Directory lab.
+
+The virtual machines provided a safe environment for testing:
+
+- Windows Server administration.
+- Active Directory.
+- DNS.
+- DHCP.
+- Group Policy.
+- Helpdesk workflows.
+
+---
+
+# Screenshots
+
+## Hyper-V Lab Environment
+
+The screenshot below shows the virtual machines created within Hyper-V Manager.
+
+![Hyper-V Lab](/Screenshots/01-Hyper-V/hyperv-lab-vms.png)
+---
+
+# Skills Demonstrated
+
+- Virtual machine creation.
+- Microsoft Hyper-V administration.
+- Lab environment design.
+- Windows infrastructure preparation.
+- Technical documentation.
+
+---
+
+# Next Steps
+
+The next stage was:
+
+- Installing and configuring Windows Server.
+- Adding required server roles.
+- Preparing the environment for Active Directory.
