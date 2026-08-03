@@ -1,21 +1,26 @@
-# Active Directory Helpdesk Home Lab
+# Active Directory Helpdesk Lab
 
 ## Overview
 
-This project is a simulated IT Helpdesk environment created to develop practical skills in Windows Server administration, Active Directory, Group Policy, PowerShell, Microsoft 365 administration concepts, and troubleshooting.
+This project is a simulated enterprise IT environment built to practise Windows Server administration, Active Directory management, Microsoft 365 administration concepts, and helpdesk troubleshooting.
 
-The purpose of this lab was to recreate common tasks performed by a First-Line IT Support Technician and Junior System Administrator.
+The lab was created using Microsoft Hyper-V and demonstrates the process of building and supporting a small business-style IT infrastructure.
 
-The project focuses on:
+---
 
-- Active Directory administration
-- User account management
-- Group Policy configuration
-- PowerShell administration
-- User onboarding and offboarding
-- Microsoft 365 administration workflows
-- Hardware troubleshooting
-- IT documentation
+# Project Objectives
+
+The goals of this project were:
+
+- Build a virtualised IT lab environment.
+- Install and configure Windows Server.
+- Deploy Active Directory Domain Services.
+- Configure DNS and DHCP services.
+- Manage users, groups, and permissions.
+- Configure Group Policy security settings.
+- Practise PowerShell administration.
+- Document helpdesk workflows and troubleshooting processes.
+- Simulate Microsoft 365 administration tasks.
 
 ---
 
@@ -23,69 +28,199 @@ The project focuses on:
 
 ## Virtualisation
 
-- Hyper-V
+- Microsoft Hyper-V
 
 ## Operating Systems
 
 - Windows Server
-- Windows Client
+- Windows Client Machine
 
-## Technologies Used
+## Services Configured
 
 - Active Directory Domain Services (AD DS)
+- DNS Server
+- DHCP Server
+- Group Policy
+- PowerShell Administration
+
+---
+
+# Project Workflow
+
+```text
+                 Active Directory Helpdesk Lab
+                              |
+                              ▼
+                    01. Hyper-V Lab Setup
+                              |
+                              ▼
+              Create Virtual Machine Environment
+                              |
+                              ▼
+                02. Windows Server Configuration
+                              |
+              ┌───────────────┴───────────────┐
+              ▼                               ▼
+          DNS Server                     DHCP Server
+              │                               │
+              └───────────────┬───────────────┘
+                              ▼
+                03. Active Directory Setup
+                              |
+                              ▼
+                 Domain Controller Deployment
+                              |
+                              ▼
+                     User & Group Management
+                              |
+                              ▼
+                     Group Policy Management
+                              |
+                              ▼
+                    PowerShell Administration
+                              |
+                              ▼
+                Microsoft 365 Admin Workflow
+                              |
+                              ▼
+              Troubleshooting & Documentation
+                              |
+                              ▼
+                 Helpdesk Ticketing Workflow
+```
+
+---
+
+# Repository Structure
+
+```text
+Active-Directory-Helpdesk-Lab
+│
+├── 01-Hyper-V-Setup
+│   └── Documentation
+│
+├── 02-Windows-Server-Configuration
+│   └── Documentation
+│
+├── 03-Active-Directory
+│   └── Documentation
+│
+├── 04-User-Management
+│   └── Documentation
+│
+├── 05-Group-Policy
+│   └── Documentation
+│
+├── 06-PowerShell
+│   └── Documentation
+│
+├── 07-Microsoft-365-Workflow
+│   └── Documentation
+│
+├── 08-Onboarding-Offboarding
+│   └── Documentation
+│
+├── 09-Troubleshooting-Cases
+│   └── Documentation
+│
+├── 10-Helpdesk-Ticketing-Workflow
+│   └── Documentation
+│
+└── Screenshots
+```
+
+---
+
+# Technologies Used
+
+## Microsoft Technologies
+
+- Microsoft Hyper-V
+- Windows Server
+- Active Directory Domain Services
+- DNS
+- DHCP
 - Group Policy
 - PowerShell
-- DNS
-- DHCP concepts
-- Microsoft 365 Administration concepts
-- Windows Server Administration
+- Microsoft 365 Administration Concepts
+
+## Additional Skills
+
+- Hardware troubleshooting
+- IT documentation
+- User support workflows
+- Incident tracking concepts
 
 ---
 
-# Completed Tasks
+# Skills Demonstrated
 
-# 1. Virtual Machine Setup
+## Windows Administration
 
-## Overview
+- Installing and configuring Windows Server.
+- Managing server roles.
+- Verifying system configuration.
 
-Created a virtual lab environment to simulate a real-world IT infrastructure.
+## Active Directory
 
-## Completed:
+- Creating users.
+- Managing groups.
+- Understanding domain environments.
+- Configuring organisational structures.
 
-- Created virtual machines using Hyper-V
-- Installed Windows Server
-- Installed Windows Client
-- Configured the testing environment
-- Prepared systems for administration tasks
+## Network Services
 
-## Skills Demonstrated:
+- DNS configuration.
+- DHCP configuration.
+- Network troubleshooting.
 
-- Virtualisation
-- Operating system installation
-- Lab environment configuration
+## Security Administration
+
+- Password policies.
+- Account lockout policies.
+- Group Policy management.
+
+## Helpdesk Skills
+
+- Troubleshooting methodology.
+- User support.
+- Ticket management workflow.
+- Technical documentation.
 
 ---
 
-# 2. Windows Server Configuration
+# Troubleshooting Examples
 
-## Overview
+Documented troubleshooting cases include:
 
-Configured Windows Server before implementing Active Directory services.
+- Desktop hardware repair.
+- Outlook profile troubleshooting.
+- Active Directory account management.
+- DNS troubleshooting.
+- DHCP troubleshooting.
+- Group Policy verification.
 
-## Completed:
+---
 
-- Verified system information
-- Checked hostname
-- Verified logged-in user
-- Prepared the server environment
+# Evidence
 
-## PowerShell Commands Used:
+Screenshots will be added showing:
 
-```powershell
-hostname -Displays the computer name.
-whoami - Displays the currently logged-in user.
+- Hyper-V virtual machines.
+- Windows Server configuration.
+- Active Directory environment.
+- DNS and DHCP configuration.
+- Group Policy settings.
+- PowerShell verification.
+- Helpdesk workflow examples.
 
-Skills Demonstrated:
-Windows administration
-PowerShell basics
-System verification
+---
+
+# Future Improvements
+
+Planned additions:
+
+- Add more troubleshooting scenarios.
+- Add additional PowerShell automation examples.
+- Expand Microsoft 365 administration examples.
+- Continue improving documentation.
