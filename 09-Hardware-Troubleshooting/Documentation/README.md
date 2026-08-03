@@ -1,159 +1,357 @@
-# Hardware Troubleshooting Documentation
+# Troubleshooting Documentation
 
 ## Overview
 
-This document explains a real-world PC troubleshooting case involving hardware failure, component replacement, and fault diagnosis.
+This document contains troubleshooting scenarios completed during the Helpdesk Lab and real-world technical support situations.
 
-The troubleshooting process involved identifying the cause of system instability, replacing incompatible components, and testing the completed build.
+The purpose of this documentation is to demonstrate a structured troubleshooting approach:
+
+- Identifying problems.
+- Investigating possible causes.
+- Testing solutions.
+- Applying fixes.
+- Verifying results.
+- Documenting resolutions.
 
 ---
 
-# Issue Reported
+# Troubleshooting Methodology
 
-The PC was experiencing:
+The troubleshooting process followed these steps:
+
+1. Identify the issue.
+2. Gather information.
+3. Analyse possible causes.
+4. Test components or settings.
+5. Apply the solution.
+6. Verify the outcome.
+7. Document the resolution.
+
+---
+
+# Case 1: Desktop PC Hardware Failure and Rebuild
+
+## Issue Reported
+
+A desktop PC was experiencing:
 
 - Random shutdowns.
 - System instability.
-- No display output after hardware replacement.
+- Failure to display after rebuilding.
+
+The system needed investigation to identify whether the issue was caused by hardware failure or compatibility problems.
 
 ---
 
-# Initial Investigation
+## Initial Investigation
 
-## Process Completed
+The PC was inspected to identify possible causes.
 
-The system was inspected to identify possible hardware faults.
+Checks completed:
 
-Checks performed:
-
-- Examined internal components.
+- Inspected internal components.
 - Checked motherboard condition.
 - Checked CPU installation.
 - Reviewed cooling system installation.
+- Checked component compatibility.
 
 ---
 
-# Step 1: Identifying CPU Socket Damage
-
-## Finding
+## Finding 1: CPU Socket Damage
 
 During inspection, the motherboard CPU socket was found to have:
 
 - Bent CPU pins.
-- Missing pins.
-- Signs of possible damage during previous handling.
+- Missing CPU pins.
+- Signs of previous damage.
 
-The damaged socket was identified as the cause of system instability and shutdown issues.
+The damaged CPU socket was identified as a likely cause of system instability and shutdown issues.
 
 ---
 
-# Step 2: Selecting Replacement Components
+## Resolution Step 1: Motherboard Replacement
 
-## Process Completed
+The original motherboard could not be replaced with the same model because it was unavailable.
 
-Because the original motherboard was unavailable, alternative compatible components were researched.
+Alternative components were researched based on compatibility requirements.
 
-Replacement parts selected:
+Replacement components selected:
 
 - Compatible ATX motherboard.
 - New PC case.
-- Compatible RAM.
+- Compatible desktop RAM.
 
 Compatibility checks included:
 
-- Motherboard size.
 - CPU support.
+- Motherboard form factor.
 - RAM compatibility.
 - Graphics card support.
 
 ---
 
-# Step 3: Rebuilding the System
+## Finding 2: Graphics Card Support Issue
 
-## Process Completed
+After rebuilding the system, the graphics card weight required additional support.
 
-The PC was rebuilt by:
+Resolution:
 
-1. Installing components into the new case.
-2. Installing motherboard.
-3. Installing CPU and cooler.
-4. Installing RAM.
-5. Installing graphics card.
-6. Connecting power cables.
-7. Testing system startup.
+- Installed a GPU support bracket to reduce stress on the motherboard.
 
 ---
 
-# Step 4: Diagnosing No Display Issue
+## Finding 3: No Display After Rebuild
 
-## Problem
+After powering on the rebuilt PC:
 
-After rebuilding, the PC powered on but displayed no image.
+- The system switched on.
+- No display output was available.
 
----
+Further troubleshooting was performed.
 
-## Troubleshooting Steps
-
-Checks performed:
+Checks completed:
 
 - Reseated components.
-- Checked connections.
-- Reviewed hardware compatibility.
-- Tested possible causes.
+- Checked motherboard connections.
+- Reviewed installed hardware.
+- Tested component compatibility.
 
 ---
 
-# Step 5: Identifying RAM Compatibility Issue
+## Finding 4: Incorrect RAM Installed
 
-## Finding
+The cause of the no-display issue was identified as incorrect RAM.
 
-The issue was caused by incorrect RAM being supplied.
+The system had been supplied with:
 
-The installed memory was server RAM instead of standard desktop-compatible RAM.
+- Server RAM.
 
-This prevented the system from completing the boot process correctly.
+The motherboard required:
 
----
-
-# Resolution
-
-The incorrect RAM was replaced with compatible desktop memory.
-
-After replacing the RAM:
-
-- The system successfully powered on.
-- Display output was restored.
-- The PC operated correctly.
+- Standard desktop-compatible RAM.
 
 ---
 
-# Outcome
+## Final Resolution
 
-The hardware fault was successfully diagnosed and resolved.
+Actions completed:
+
+- Replaced incompatible RAM.
+- Tested system startup.
+- Verified display output.
+- Confirmed successful operation.
+
+---
+
+## Outcome
+
+The PC was successfully repaired after identifying multiple hardware faults.
 
 The troubleshooting process demonstrated:
 
-- Hardware inspection.
-- Component compatibility checking.
-- System rebuilding.
 - Fault isolation.
-- Problem resolution.
+- Component diagnosis.
+- Hardware replacement.
+- Compatibility checking.
+- System testing.
+
+---
+
+# Case 2: Outlook Troubleshooting
+
+## Issue
+
+A user experienced issues accessing Outlook email.
+
+---
+
+## Investigation
+
+Steps completed:
+
+- Confirmed the issue.
+- Checked Outlook application status.
+- Reset the Outlook profile.
+- Restarted Outlook.
+- Allowed mailbox synchronisation.
+
+---
+
+## Resolution
+
+The Outlook profile was reset and tested.
+
+---
+
+## Outcome
+
+Outlook access was restored.
+
+---
+
+# Case 3: Active Directory User Account Troubleshooting
+
+## Issue
+
+A user account required creation and configuration within the domain environment.
+
+---
+
+## Investigation
+
+Steps completed:
+
+- Opened Active Directory Users and Computers.
+- Created the user account.
+- Configured account details.
+- Assigned required group membership.
+
+---
+
+## Resolution
+
+The user account was successfully configured.
+
+---
+
+## Outcome
+
+The account was available for use within the Active Directory environment.
+
+---
+
+# Case 4: Group Policy Verification
+
+## Issue
+
+Domain security settings required checking after configuration changes.
+
+---
+
+## Investigation
+
+Steps completed:
+
+- Reviewed Group Policy Management.
+- Checked password policy.
+- Checked account lockout settings.
+- Forced policy refresh.
+
+Command used:
+
+```powershell
+gpupdate /force
+```
+
+Verification:
+
+```powershell
+Get-ADDefaultDomainPasswordPolicy
+```
+
+---
+
+## Resolution
+
+Group Policy settings were refreshed and verified.
+
+---
+
+## Outcome
+
+Security policies were successfully applied within the domain.
+
+---
+
+# Case 5: DNS Troubleshooting
+
+## Issue
+
+Domain services required correct DNS resolution.
+
+---
+
+## Investigation
+
+Checks completed:
+
+- Reviewed DNS configuration.
+- Checked network settings.
+- Tested name resolution.
+
+Commands used:
+
+```cmd
+ipconfig /all
+```
+
+```cmd
+nslookup
+```
+
+---
+
+## Resolution
+
+DNS configuration was verified.
+
+---
+
+## Outcome
+
+DNS successfully supported the domain environment.
+
+---
+
+# Case 6: DHCP Troubleshooting
+
+## Issue
+
+Client machines required automatic network configuration.
+
+---
+
+## Investigation
+
+Checks completed:
+
+- Reviewed DHCP scope.
+- Checked IP address assignment.
+- Verified client configuration.
+
+Commands used:
+
+```cmd
+ipconfig /all
+```
+
+```cmd
+ipconfig /renew
+```
+
+---
+
+## Resolution
+
+DHCP configuration was verified and corrected.
+
+---
+
+## Outcome
+
+Client machines successfully received network settings.
 
 ---
 
 # Skills Demonstrated
 
-- Desktop hardware troubleshooting.
-- PC building.
-- Component compatibility analysis.
-- Fault diagnosis.
-- Customer-focused problem solving.
+- Hardware troubleshooting.
+- PC repair and rebuilding.
+- Component compatibility checking.
+- Windows troubleshooting.
+- Active Directory support.
+- DNS and DHCP troubleshooting.
+- Group Policy administration.
+- PowerShell verification.
+- End-user support.
 - Technical documentation.
-
----
-
-# Evidence
-
-No photos were taken during the repair.
-
-The documentation is based on the troubleshooting process, issues identified, and solutions applied.
