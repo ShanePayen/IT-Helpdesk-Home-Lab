@@ -1,357 +1,361 @@
-# Troubleshooting Documentation
+# Helpdesk Troubleshooting Documentation
 
 ## Overview
 
-This document contains troubleshooting scenarios completed during the Helpdesk Lab and real-world technical support situations.
+This document contains troubleshooting scenarios completed during the Active Directory Helpdesk Lab and technical support practice.
 
-The purpose of this documentation is to demonstrate a structured troubleshooting approach:
+Each case follows a structured troubleshooting approach:
 
-- Identifying problems.
-- Investigating possible causes.
-- Testing solutions.
-- Applying fixes.
-- Verifying results.
-- Documenting resolutions.
-
----
-
-# Troubleshooting Methodology
-
-The troubleshooting process followed these steps:
-
-1. Identify the issue.
-2. Gather information.
-3. Analyse possible causes.
-4. Test components or settings.
-5. Apply the solution.
-6. Verify the outcome.
-7. Document the resolution.
+- Issue identification
+- Investigation
+- Root cause analysis
+- Resolution
+- Outcome
+- Skills demonstrated
 
 ---
 
-# Case 1: Desktop PC Hardware Failure and Rebuild
-
-## Issue Reported
-
-A desktop PC was experiencing:
-
-- Random shutdowns.
-- System instability.
-- Failure to display after rebuilding.
-
-The system needed investigation to identify whether the issue was caused by hardware failure or compatibility problems.
-
----
-
-## Initial Investigation
-
-The PC was inspected to identify possible causes.
-
-Checks completed:
-
-- Inspected internal components.
-- Checked motherboard condition.
-- Checked CPU installation.
-- Reviewed cooling system installation.
-- Checked component compatibility.
-
----
-
-## Finding 1: CPU Socket Damage
-
-During inspection, the motherboard CPU socket was found to have:
-
-- Bent CPU pins.
-- Missing CPU pins.
-- Signs of previous damage.
-
-The damaged CPU socket was identified as a likely cause of system instability and shutdown issues.
-
----
-
-## Resolution Step 1: Motherboard Replacement
-
-The original motherboard could not be replaced with the same model because it was unavailable.
-
-Alternative components were researched based on compatibility requirements.
-
-Replacement components selected:
-
-- Compatible ATX motherboard.
-- New PC case.
-- Compatible desktop RAM.
-
-Compatibility checks included:
-
-- CPU support.
-- Motherboard form factor.
-- RAM compatibility.
-- Graphics card support.
-
----
-
-## Finding 2: Graphics Card Support Issue
-
-After rebuilding the system, the graphics card weight required additional support.
-
-Resolution:
-
-- Installed a GPU support bracket to reduce stress on the motherboard.
-
----
-
-## Finding 3: No Display After Rebuild
-
-After powering on the rebuilt PC:
-
-- The system switched on.
-- No display output was available.
-
-Further troubleshooting was performed.
-
-Checks completed:
-
-- Reseated components.
-- Checked motherboard connections.
-- Reviewed installed hardware.
-- Tested component compatibility.
-
----
-
-## Finding 4: Incorrect RAM Installed
-
-The cause of the no-display issue was identified as incorrect RAM.
-
-The system had been supplied with:
-
-- Server RAM.
-
-The motherboard required:
-
-- Standard desktop-compatible RAM.
-
----
-
-## Final Resolution
-
-Actions completed:
-
-- Replaced incompatible RAM.
-- Tested system startup.
-- Verified display output.
-- Confirmed successful operation.
-
----
-
-## Outcome
-
-The PC was successfully repaired after identifying multiple hardware faults.
-
-The troubleshooting process demonstrated:
-
-- Fault isolation.
-- Component diagnosis.
-- Hardware replacement.
-- Compatibility checking.
-- System testing.
-
----
-
-# Case 2: Outlook Troubleshooting
+# Ticket 001 - Remote Desktop Access Issue (CLIENT01)
 
 ## Issue
 
-A user experienced issues accessing Outlook email.
+A domain user attempting to connect remotely to CLIENT01 received:
 
----
+"The requested session access is denied."
 
-## Investigation
-
-Steps completed:
-
-- Confirmed the issue.
-- Checked Outlook application status.
-- Reset the Outlook profile.
-- Restarted Outlook.
-- Allowed mailbox synchronisation.
-
----
-
-## Resolution
-
-The Outlook profile was reset and tested.
-
----
-
-## Outcome
-
-Outlook access was restored.
-
----
-
-# Case 3: Active Directory User Account Troubleshooting
-
-## Issue
-
-A user account required creation and configuration within the domain environment.
-
----
+The same account successfully connected to CLIENT02, confirming the issue was isolated to CLIENT01.
 
 ## Investigation
 
-Steps completed:
-
-- Opened Active Directory Users and Computers.
-- Created the user account.
-- Configured account details.
-- Assigned required group membership.
-
----
-
-## Resolution
-
-The user account was successfully configured.
-
----
-
-## Outcome
-
-The account was available for use within the Active Directory environment.
-
----
-
-# Case 4: Group Policy Verification
-
-## Issue
-
-Domain security settings required checking after configuration changes.
-
----
-
-## Investigation
-
-Steps completed:
-
-- Reviewed Group Policy Management.
-- Checked password policy.
-- Checked account lockout settings.
-- Forced policy refresh.
-
-Command used:
+Checked Group Policy results:
 
 ```powershell
-gpupdate /force
+gpresult /r
 ```
 
-Verification:
+Findings:
 
-```powershell
-Get-ADDefaultDomainPasswordPolicy
+- CLIENT02 received the expected Remote Desktop policies.
+- CLIENT01 was missing the required policy settings.
+
+Checked Remote Desktop Users group:
+
+```cmd
+net localgroup "Remote Desktop Users"
 ```
 
----
+Findings:
+
+CLIENT02:
+- HR_Users
+- IT_Users
+- Managers
+
+CLIENT01:
+- Missing expected Group Policy permissions.
+
+## Root Cause
+
+CLIENT01 was located in the incorrect Active Directory Organizational Unit (OU).
+
+Because the computer account was outside the correct OU:
+
+- Required Group Policy Objects were not applied.
+- Remote Desktop permissions were not configured automatically.
 
 ## Resolution
 
-Group Policy settings were refreshed and verified.
+Temporary fix:
+
+Added:
+
+```
+LAB\Domain Users
+```
+
+to the Remote Desktop Users permissions.
+
+Permanent fix:
+
+Move CLIENT01 into the correct OU so Group Policy applies automatically.
+
+## Result
+
+Remote Desktop access was restored.
+
+## Skills Demonstrated
+
+- Active Directory
+- Group Policy
+- Remote Desktop troubleshooting
+- OU management
 
 ---
 
-## Outcome
-
-Security policies were successfully applied within the domain.
-
----
-
-# Case 5: DNS Troubleshooting
+# Ticket 002 - DHCP Address Assignment Failure (CLIENT01)
 
 ## Issue
 
-Domain services required correct DNS resolution.
+CLIENT01 failed to obtain an IP address automatically.
 
----
+The device received:
+
+```
+169.254.x.x
+```
 
 ## Investigation
 
-Checks completed:
-
-- Reviewed DNS configuration.
-- Checked network settings.
-- Tested name resolution.
-
-Commands used:
+Checked:
 
 ```cmd
 ipconfig /all
 ```
 
+Tested communication:
+
 ```cmd
-nslookup
+ping 192.168.1.10
 ```
 
----
+Reviewed Hyper-V network adapter settings.
+
+## Root Cause
+
+CLIENT01 and DC01 were connected to different Hyper-V virtual switches.
+
+This prevented:
+
+- DHCP broadcasts reaching the server.
+- DNS communication.
+- Domain communication.
 
 ## Resolution
 
-DNS configuration was verified.
+Moved CLIENT01 onto the same Internal Hyper-V Switch as DC01.
+
+## Result
+
+CLIENT01 received:
+
+IP Address:
+```
+192.168.1.101
+```
+
+DHCP Server:
+```
+192.168.1.10
+```
+
+DNS Server:
+```
+192.168.1.10
+```
+
+## Skills Demonstrated
+
+- Hyper-V networking
+- DHCP troubleshooting
+- TCP/IP troubleshooting
+- Windows Server administration
 
 ---
 
-## Outcome
-
-DNS successfully supported the domain environment.
-
----
-
-# Case 6: DHCP Troubleshooting
+# Ticket 003 - Group Policy Not Applying
 
 ## Issue
 
-Client machines required automatic network configuration.
-
----
+A Group Policy created on the Domain Controller was not applying to CLIENT01.
 
 ## Investigation
 
-Checks completed:
+Compared:
 
-- Reviewed DHCP scope.
-- Checked IP address assignment.
-- Verified client configuration.
-
-Commands used:
-
-```cmd
-ipconfig /all
+```powershell
+gpresult /r
 ```
 
-```cmd
-ipconfig /renew
-```
+Findings:
 
----
+- CLIENT02 received the policy.
+- CLIENT01 did not.
+
+## Root Cause
+
+CLIENT01 was placed in the wrong OU.
 
 ## Resolution
 
-DHCP configuration was verified and corrected.
+Reviewed the computer account location in Active Directory Users and Computers.
+
+Moved the device into the correct OU.
+
+## Result
+
+CLIENT01 successfully received Group Policy settings.
+
+## Skills Demonstrated
+
+- Active Directory
+- Group Policy
+- Computer account management
 
 ---
 
-## Outcome
+# Ticket 004 - User Missing Network Drive
 
-Client machines successfully received network settings.
+## Issue
+
+A Finance user logged in but the Finance network drive was missing.
+
+## Investigation
+
+Checked:
+
+- User account.
+- Security group membership.
+- Group Policy application.
+
+Command:
+
+```powershell
+gpresult /r
+```
+
+## Resolution
+
+Added the user to:
+
+```
+GG_Finance
+```
+
+Refreshed Group Policy.
+
+## Result
+
+The Finance drive became available.
+
+## Skills Demonstrated
+
+- Active Directory groups
+- Group Policy
+- File access troubleshooting
 
 ---
 
-# Skills Demonstrated
+# Ticket 005 - User Account Locked
 
-- Hardware troubleshooting.
-- PC repair and rebuilding.
-- Component compatibility checking.
-- Windows troubleshooting.
-- Active Directory support.
-- DNS and DHCP troubleshooting.
-- Group Policy administration.
-- PowerShell verification.
-- End-user support.
-- Technical documentation.
+## Issue
+
+User unable to sign into domain workstation.
+
+## Investigation
+
+Checked:
+
+- Username.
+- Account status.
+- Failed login attempts.
+
+## Resolution
+
+Unlocked the account in Active Directory.
+
+## Result
+
+User successfully logged back in.
+
+## Skills Demonstrated
+
+- Account administration
+- Active Directory support
+- User troubleshooting
+
+---
+
+# Ticket 006 - Incorrect User Permissions
+
+## Issue
+
+A user had access to resources they should not have.
+
+## Investigation
+
+Checked:
+
+- Active Directory groups.
+- NTFS permissions.
+- Share permissions.
+
+Command:
+
+```cmd
+whoami /groups
+```
+
+## Root Cause
+
+Permissions were assigned directly to users instead of security groups.
+
+## Resolution
+
+Changed permissions model:
+
+Users → Security Groups → Resources
+
+## Result
+
+Correct access control was restored.
+
+## Skills Demonstrated
+
+- NTFS permissions
+- Security groups
+- Access control
+
+---
+
+# Ticket 007 - PowerShell Administration Issues
+
+## Issue
+
+PowerShell commands were used for Active Directory administration.
+
+Examples:
+
+- Creating users.
+- Testing password policies.
+- Searching groups.
+
+## Investigation
+
+Verified:
+
+- Active Directory modules.
+- Group names.
+- User objects.
+
+## Resolution
+
+Corrected command syntax and verified objects existed before applying changes.
+
+## Skills Demonstrated
+
+- PowerShell
+- Active Directory administration
+- Automation concepts
+
+---
+
+# Overall Skills Demonstrated
+
+- Helpdesk troubleshooting
+- Active Directory administration
+- Group Policy troubleshooting
+- DNS and DHCP troubleshooting
+- Hyper-V networking
+- User account management
+- PowerShell administration
+- Technical documentation
