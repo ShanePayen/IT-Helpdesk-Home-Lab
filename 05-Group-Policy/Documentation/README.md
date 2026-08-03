@@ -96,3 +96,45 @@ After making policy changes, Group Policy can be refreshed using:
 
 ```powershell
 gpupdate /force
+
+Purpose
+
+This command forces client computers to immediately apply updated Group Policy settings.
+
+Step 6: Verifying Password Policy
+
+PowerShell was used to confirm the domain password policy.
+
+Command Used
+Get-ADDefaultDomainPasswordPolicy
+Information Verified
+
+The command displays:
+
+Password complexity status.
+Minimum password age.
+Maximum password age.
+Password history requirements.
+Account lockout settings.
+Outcome
+
+Group Policy settings were successfully configured and verified.
+
+The domain environment was prepared with basic security controls similar to those used in business environments.
+
+Screenshots
+
+Evidence to include:
+
+Group Policy Management Console.
+Password policy settings.
+Account lockout settings.
+PowerShell output from:
+Get-ADDefaultDomainPasswordPolicy
+Skills Demonstrated
+Group Policy management.
+Active Directory security.
+Password policy configuration.
+PowerShell verification.
+Domain administration.
+Security best practices.
