@@ -127,47 +127,61 @@ Command used:
 
 ```powershell
 gpupdate /force
+```
 
 Purpose:
 
 Forces Group Policy updates to apply immediately instead of waiting for the normal refresh cycle.
 
-##Step 6: Verifying Group Policy Settings
+---
+
+## Step 6: Verifying Group Policy Settings
 
 PowerShell was used to verify the Active Directory password policy configuration.
 
 Command used:
 
+```powershell
 Get-ADDefaultDomainPasswordPolicy
+```
 
 The command was used to check:
 
-Password complexity status.
-Minimum password age.
-Maximum password age.
-Password history.
-Account lockout settings.
-Outcome
+- Password complexity status
+- Minimum password age
+- Maximum password age
+- Password history
+- Account lockout settings
+
+---
+
+## Outcome
 
 Group Policy was successfully reviewed, configured, and verified within the Active Directory environment.
 
 The domain now had security controls similar to those used in business environments to manage user authentication and account security.
 
-Screenshots
+---
 
-Evidence to include:
+## Screenshots
 
-Group Policy Management Console.
-Default Domain Policy settings.
-Password Policy configuration.
-Account Lockout Policy configuration.
-PowerShell output showing:
-Get-ADDefaultDomainPasswordPolicy
-Skills Demonstrated
-Group Policy administration.
-Active Directory security management.
-Password policy configuration.
-Account lockout configuration.
-PowerShell verification.
-Enterprise security practices.
-IT documentation.
+Evidence included:
+
+- Group Policy Management Console
+- Default Domain Policy settings
+- Password Policy configuration
+- Account Lockout Policy configuration
+- PowerShell output showing:
+  - `Get-ADDefaultDomainPasswordPolicy`
+
+---
+
+## Skills Demonstrated
+
+- Group Policy administration
+- Active Directory security management
+- Password policy configuration
+- Account lockout configuration
+- PowerShell verification
+- Enterprise security practices
+- IT documentation
