@@ -82,12 +82,17 @@ Verification included:
 
 # Step 4: PowerShell Verification
 
-PowerShell was used to verify the domain configuration.
+PowerShell was used to verify the Active Directory domain configuration.
 
 ## Command Used
 
-```powershell
 Get-ADDomain
+
+The command was used to confirm:
+
+- Domain information.
+- Active Directory configuration.
+- Domain Controller environment.
 
 ---
 
@@ -112,10 +117,8 @@ The Active Directory environment was prepared for:
 Evidence included:
 
 - Active Directory Users and Computers.
-- Domain Controller configuration.
 - Active Directory domain environment.
-- PowerShell verification:
-  - `Get-ADDomain`
+- PowerShell verification.
 
 ---
 
@@ -124,34 +127,40 @@ Evidence included:
 ![Active Directory Users and Computers](../../Screenshots/03-Active-Directory/active-directory-users.png)
 
 ---
-
 ## Domain Controller Configuration
 
-![Domain Controller Configuration](../../Screenshots/03-Active-Directory/domain-controller-server-manager.png)
-
+![Domain Controller](../../Screenshots/03-Active-Directory/server-manager.png)
 ---
 
 ## PowerShell Verification
 
-PowerShell was used to confirm the Active Directory domain configuration.
+PowerShell was used to verify the Active Directory environment.
 
-Command used:
+Commands tested:
 
-```powershell
-Get-ADDomain
-Skills Demonstrated
-Active Directory administration.
-Domain Controller deployment.
-Windows Server configuration.
-User and computer management.
-Domain authentication concepts.
-PowerShell verification.
-IT documentation.
-Next Steps
+- Get-ADDomain
+- whoami
+- ipconfig /all
+![PowerShell Verification](../../Screenshots/03-Active-Directory/powershell-verification.png)
+---
+
+# Skills Demonstrated
+
+- Active Directory administration.
+- Domain Controller deployment.
+- Windows Server configuration.
+- User and computer management.
+- Domain authentication concepts.
+- PowerShell verification.
+- IT documentation.
+
+---
+
+# Next Steps
 
 The next stage was:
 
-Creating and managing users.
-Configuring Group Policy.
-Applying security policies.
-Testing domain user access.
+- Creating and managing users.
+- Configuring Group Policy.
+- Applying security policies.
+- Testing domain user access.
