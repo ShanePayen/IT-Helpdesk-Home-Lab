@@ -88,3 +88,70 @@ PowerShell was used to verify the domain configuration.
 
 ```powershell
 Get-ADDomain
+
+---
+
+# Outcome
+
+Active Directory Domain Services was successfully installed and configured within the Windows Server lab environment.
+
+The server was successfully promoted to a Domain Controller and the domain environment was created.
+
+The Active Directory environment was prepared for:
+
+- User account management.
+- Computer management.
+- Group Policy configuration.
+- Domain authentication.
+- Helpdesk administration practice.
+
+---
+
+# Screenshots
+
+Evidence included:
+
+- Active Directory Users and Computers.
+- Domain Controller configuration.
+- Active Directory domain environment.
+- PowerShell verification:
+  - `Get-ADDomain`
+
+---
+
+## Active Directory Users and Computers
+
+![Active Directory Users and Computers](../../Screenshots/03-Active-Directory/active-directory-users.png)
+
+---
+
+## Domain Controller Configuration
+
+![Domain Controller Configuration](../../Screenshots/03-Active-Directory/domain-controller-server-manager.png)
+
+---
+
+## PowerShell Verification
+
+PowerShell was used to confirm the Active Directory domain configuration.
+
+Command used:
+
+```powershell
+Get-ADDomain
+Skills Demonstrated
+Active Directory administration.
+Domain Controller deployment.
+Windows Server configuration.
+User and computer management.
+Domain authentication concepts.
+PowerShell verification.
+IT documentation.
+Next Steps
+
+The next stage was:
+
+Creating and managing users.
+Configuring Group Policy.
+Applying security policies.
+Testing domain user access.
