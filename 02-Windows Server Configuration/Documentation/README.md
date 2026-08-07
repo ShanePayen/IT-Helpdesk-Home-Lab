@@ -257,18 +257,13 @@ The server was prepared for Active Directory deployment and further domain confi
 
 Evidence to include:
 
-- Windows Server desktop.
-- Server Manager.
-- DNS Manager.
-- DHCP Manager.
-- PowerShell output:
-  - `hostname`
-  - `whoami`
-- Network configuration:
-  - `ipconfig /all`
-- DNS testing:
-  - `nslookup`
+![Windows Server Desktop](../../Screenshots/02-Windows-Server/windows-server-desktop.png)
 
+![Server Manager](../../Screenshots/02-Windows-Server/server-manager.png)
+
+![DNS Manager](../../Screenshots/02-Windows-Server/dns-manager.png)
+
+![DHCP Manager](../../Screenshots/02-Windows-Server/dhcp-manager.png)
 ---
 
 # Skills Demonstrated
